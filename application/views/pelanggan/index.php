@@ -42,17 +42,15 @@
                 </div>
 
                 <input class="btn btn-success" type="submit" name="btn" value="Save" />
-
-                <!-- <div class="card-header">
-                    <a href="<?php echo site_url('menu/index') ?>"><i class="fas fa-arrow-right"></i> Berikutnya</a>
-                </div> -->
             </form>
-
         </div>
 
         <div class="card-footer small text-muted">
             * required fields
         </div>
 
+        <div class="card-header">
+            <a href="<?php echo site_url('menu/index') ?>"><i class="fas fa-arrow-right"></i> Berikutnya</a>
+        </div>
     </div>
     <!-- /.container-fluid -->
