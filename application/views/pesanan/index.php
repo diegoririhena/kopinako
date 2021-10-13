@@ -3,7 +3,7 @@
 	<div class="container">
 		<div class="row mt-5">
 			<div class="col-lg-9 pr-5">
-				<h5 class="pesanan-anda">Keranjang Anda</h5>
+				<h5 class="pesanan-anda">Pesanan Anda</h5>
 				<?php if (!$pesanan) : ?>
 					<div class="row justify-content-center">
 						<div class="card">

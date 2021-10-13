@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Pesanan extends CI_Controller {
+class Pesanan extends CI_Controller
+{
 
 	public function __construct()
 	{
@@ -30,7 +31,7 @@ class Pesanan extends CI_Controller {
 
 		$data['total_bayar'] = $totalBayar;
 
-		if ( $data['pesanan'] ) {
+		if ($data['pesanan']) {
 			$data['no_pesanan'] = $data['pesanan'][0]['no_pesanan'];
 		}
 
@@ -51,7 +52,7 @@ class Pesanan extends CI_Controller {
 			'quantity'	=> $pesanan['quantity'] + 1,
 			'subtotal'	=> $pesanan['subtotal'] + $pesanan['harga']
 		];
-		
+
 		$this->db->where('id', $pesanan_id);
 		$this->db->update('pesanan', $data);
 
@@ -70,7 +71,7 @@ class Pesanan extends CI_Controller {
 			'quantity'	=> $pesanan['quantity'] - 1,
 			'subtotal'	=> $pesanan['subtotal'] - $pesanan['harga']
 		];
-		
+
 		$this->db->where('id', $pesanan_id);
 		$this->db->update('pesanan', $data);
 
@@ -108,5 +109,4 @@ class Pesanan extends CI_Controller {
 
 		redirect('pesanan');
 	}
-
 }

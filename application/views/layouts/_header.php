@@ -39,6 +39,12 @@
             <a class="nav-item nav-link mr-3" href="<?= base_url(); ?>">Home</a>
           <?php endif; ?>
 
+          <?php if ($title == 'Pelanggan') : ?>
+            <a class="nav-item nav-link active mr-3" href="<?= base_url('pelanggan'); ?>">Pelanggan</a>
+          <?php else : ?>
+            <a class="nav-item nav-link mr-3" href="<?= base_url('pelanggan'); ?>">Pelanggan</a>
+          <?php endif; ?>
+
           <?php if ($title == 'Menu') : ?>
             <a class="nav-item nav-link active mr-3" href="<?= base_url('menu'); ?>">Menu</a>
           <?php else : ?>
@@ -46,9 +52,9 @@
           <?php endif; ?>
 
           <?php if ($title == 'Pesanan') : ?>
-            <a class="nav-item nav-link active" href="<?= base_url('pesanan'); ?>">Keranjang (<span><?= $notif_pesanan; ?></span>)</a>
+            <a class="nav-item nav-link active" href="<?= base_url('pesanan'); ?>">Pesanan (<span><?= $notif_pesanan; ?></span>)</a>
           <?php else : ?>
-            <a class="nav-item nav-link" href="<?= base_url('pesanan'); ?>">Keranjang (<span><?= $notif_pesanan; ?></span>)</a>
+            <a class="nav-item nav-link" href="<?= base_url('pesanan'); ?>">Pesanan (<span><?= $notif_pesanan; ?></span>)</a>
           <?php endif; ?>
         </div>
       </div>
