@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Menu extends CI_Controller {
+class Menu extends CI_Controller
+{
 
 	public function __construct()
 	{
@@ -24,7 +25,7 @@ class Menu extends CI_Controller {
 
 		$config['base_url'] = 'http://localhost/ci-coffee-shop/menu/index';
 		$config['total_rows'] = $totalMenu;
-		$config['per_page'] = 4;
+		$config['per_page'] = 8;
 
 		$config['full_tag_open'] = '<nav aria-label="Page navigation example"><ul class="pagination">';
 		$config['full_tag_close'] = '</ul></nav>';
@@ -65,10 +66,10 @@ class Menu extends CI_Controller {
 		$pesanan = $this->db->get_where('pesanan', ['lunas' => 1])->row_array();
 		$no_pesanan = $pesanan['no_pesanan'];
 
-		$pesananSudahAda = $this->db->get_where('pesanan', ['menu_id' => $menu_id,'lunas' => 0])->row_array();
+		$pesananSudahAda = $this->db->get_where('pesanan', ['menu_id' => $menu_id, 'lunas' => 0])->row_array();
 		$menuIdSudahAda = $pesananSudahAda['menu_id'];
 
-		if ( $no_pesanan ) {
+		if ($no_pesanan) {
 			$no_pesanan = $no_pesanan + 1;
 		} else {
 			$no_pesanan = 1;
@@ -76,7 +77,7 @@ class Menu extends CI_Controller {
 
 		if ($menu_id == $menuIdSudahAda) {
 			$data = [
-				'no_pesanan'=> $pesananSudahAda['no_pesanan'],
+				'no_pesanan' => $pesananSudahAda['no_pesanan'],
 				'menu_id'		=> $pesananSudahAda['menu_id'],
 				'quantity'	=> $pesananSudahAda['quantity'] + 1,
 				'subtotal'	=> $pesananSudahAda['subtotal'] + $harga,
@@ -88,7 +89,7 @@ class Menu extends CI_Controller {
 			$this->db->update('pesanan', $data);
 		} else {
 			$data = [
-				'no_pesanan'=> $no_pesanan,
+				'no_pesanan' => $no_pesanan,
 				'menu_id'		=> $menu_id,
 				'quantity'	=> 1,
 				'subtotal'	=> $harga,
@@ -100,5 +101,4 @@ class Menu extends CI_Controller {
 
 		redirect('menu');
 	}
-
 }
