@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 28 Des 2019 pada 13.21
--- Versi server: 10.1.38-MariaDB
--- Versi PHP: 7.3.2
+-- Generation Time: Oct 13, 2021 at 08:38 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 7.4.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -25,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `menu`
+-- Table structure for table `menu`
 --
 
 CREATE TABLE `menu` (
@@ -38,7 +37,7 @@ CREATE TABLE `menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `menu`
+-- Dumping data for table `menu`
 --
 
 INSERT INTO `menu` (`id`, `kopi`, `deskrpsi`, `image`, `harga`, `date_created`) VALUES
@@ -56,7 +55,28 @@ INSERT INTO `menu` (`id`, `kopi`, `deskrpsi`, `image`, `harga`, `date_created`) 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pembayaran`
+-- Table structure for table `pelanggan`
+--
+
+CREATE TABLE `pelanggan` (
+  `id` int(11) NOT NULL,
+  `nama_depan` varchar(128) NOT NULL,
+  `nama_belakang` varchar(128) NOT NULL,
+  `no_telp` varchar(128) NOT NULL,
+  `email` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `pelanggan`
+--
+
+INSERT INTO `pelanggan` (`id`, `nama_depan`, `nama_belakang`, `no_telp`, `email`) VALUES
+(61667, 'Diego', 'Ririhena', '08226191200', 'diego.ririhena18@mhs.uinjkt.ac.id');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pembayaran`
 --
 
 CREATE TABLE `pembayaran` (
@@ -67,21 +87,17 @@ CREATE TABLE `pembayaran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `pembayaran`
+-- Dumping data for table `pembayaran`
 --
 
 INSERT INTO `pembayaran` (`id`, `no_pesanan`, `total_bayar`, `date_created`) VALUES
-(2, 1, '125000', 1576150333),
-(3, 2, '30000', 1576205118),
-(4, 3, '64000', 1576205212),
-(5, 4, '33000', 1576207195),
-(6, 5, '116000', 1577534980),
-(7, 6, '97000', 1577535021);
+(16, 1, '60000', 1634106622),
+(17, 2, '33000', 1634106778);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pesanan`
+-- Table structure for table `pesanan`
 --
 
 CREATE TABLE `pesanan` (
@@ -94,65 +110,70 @@ CREATE TABLE `pesanan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `pesanan`
+-- Dumping data for table `pesanan`
 --
 
 INSERT INTO `pesanan` (`id`, `no_pesanan`, `menu_id`, `quantity`, `subtotal`, `lunas`) VALUES
-(33, 1, 1, 3, '90000', 1),
-(34, 1, 4, 1, '35000', 1),
-(35, 2, 1, 1, '30000', 1),
-(36, 3, 2, 2, '64000', 1),
-(38, 4, 3, 1, '33000', 1),
-(39, 5, 8, 2, '86000', 1),
-(40, 5, 1, 1, '30000', 1),
-(41, 6, 2, 2, '64000', 1),
-(42, 6, 3, 1, '33000', 1),
-(43, 7, 3, 1, '33000', 0),
-(44, 7, 4, 1, '35000', 0);
+(69, 1, 1, 2, '60000', 1),
+(70, 2, 3, 1, '33000', 1),
+(71, 3, 3, 1, '33000', 0),
+(72, 3, 2, 1, '32000', 0);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `menu`
+-- Indexes for table `menu`
 --
 ALTER TABLE `menu`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `pembayaran`
+-- Indexes for table `pelanggan`
+--
+ALTER TABLE `pelanggan`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `pesanan`
+-- Indexes for table `pesanan`
 --
 ALTER TABLE `pesanan`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `menu`
+-- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT untuk tabel `pembayaran`
+-- AUTO_INCREMENT for table `pelanggan`
 --
-ALTER TABLE `pembayaran`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+ALTER TABLE `pelanggan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2147483648;
 
 --
--- AUTO_INCREMENT untuk tabel `pesanan`
+-- AUTO_INCREMENT for table `pembayaran`
+--
+ALTER TABLE `pembayaran`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT for table `pesanan`
 --
 ALTER TABLE `pesanan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
