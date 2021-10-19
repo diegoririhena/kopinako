@@ -109,14 +109,15 @@
 
 						</div>
 					</div>
-					<?php if (!$pesanan) : ?>
-					<?php else : ?>
-						<div class="row">
-							<div class="col mb-3 mt-1">
-								<a href="<?= base_url('pesanan/bayar/') . $no_pesanan; ?>" id="bayar" class="btn btn-pesan text-uppercase" style="width: 100%;">Pesan</a>
-							</div>
+					<!-- <?php if (!$pesanan) : ?>
+					<?php else : ?> -->
+					<div class="row">
+						<div class="col mb-3 mt-1">
+							<a href="<?php echo site_url('invoice/index') ?>" id="bayar" class="btn btn-pesan text-uppercase" style="width: 100%;">Pesan</a>
+							<!-- <a href="<?= base_url('pesanan/bayar/') . $no_pesanan; ?>" id="bayar" class="btn btn-pesan text-uppercase" style="width: 100%;">Pesan</a> -->
 						</div>
-					<?php endif; ?>
+					</div>
+				<?php endif; ?>
 				</div>
 			</div>
 		</div>

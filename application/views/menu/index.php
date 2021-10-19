@@ -14,8 +14,9 @@
 				</div>
 			<?php endforeach; ?>
 		</div>
-		<div class=" row justify-content-center mt-2">
+		<!-- <div class=" row justify-content-center mt-2">
 								<?= $this->pagination->create_links(); ?>
-						</div>
+								<a href="<?php echo site_url('menu/index') ?>"><i class="fas fa-arrow-right"></i> Berikutnya</a>
+						</div> -->
 					</div>
 				</div>
